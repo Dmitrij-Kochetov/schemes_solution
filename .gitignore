@@ -149,3 +149,6 @@ volumes/
 #visual studio stuff
 *.pyproj
 *.sln
+
+#secrets file
+.secrets.toml
