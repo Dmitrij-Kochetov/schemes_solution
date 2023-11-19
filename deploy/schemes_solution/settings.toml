@@ -1,0 +1,11 @@
+[log]
+level = 'DEBUG'
+format = '%(asctime)s %(levelname)s %(message)s'
+[api]
+project_name = 'schemes_solution'
+prefix = "/api/v1"
+host = '0.0.0.0'
+port = 8000
+backend_cors_origins = ['http://localhost', 'http://localhost:8010']
+[mongo]
+mongo_path = "mongodb://localhost:27017"
