@@ -1,21 +1,20 @@
 services:
   mongo:
     image: mongo:latest
-	ports:
-	  - "27017:27017"
+    ports:
+    - "27017:27017"
     volumes:
-	  - db:/data/db
+    - db:/data/db
 
   app:
-	build: .
-	environment:
-      SETTINGS: deploy/backend
+    build: .
+    environment:
+      SETTINGS: deploy/schemes_solution
     ports:
-	  - "8000:8000"
+    - "8000:8000"
     depends_on:
-	  mongo
+    - mongo
 
 volumes:
   db:
     driver: local
-		

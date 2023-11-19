@@ -17,7 +17,7 @@ RUN poetry config virtualenvs.create false && \
     rm -rf ~/.cache ~/.config/pypoetry/auth.toml
 
 COPY /src /src
-COPY deploy /deploy
+COPY /deploy /deploy
 
 ENV PYTHONPATH="/"
 ENV SETTINGS="deploy/backend"

@@ -31,12 +31,11 @@ class Application:
     @classmethod
     async def from_config(cls, settings_path: str) -> "Application":
         config = Dynaconf(
+            root_path=settings_path,
             envvar_prefix="DYNACONF",
-            settings_files=[
-                settings_path + "/settings.toml",
-                settings_path + ".secrets.toml",
-            ],
+            settings_files=["settings.toml", ".secrets.toml"],
         )
+        print(config)
         logging.basicConfig(
             level=config.log.level,
             format=config.log.format,
