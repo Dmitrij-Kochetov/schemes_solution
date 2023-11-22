@@ -6,4 +6,3 @@ class Type(Enum):
     date = "date"
     phone_number = "phone"
     text = "text"
-    

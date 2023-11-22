@@ -14,6 +14,10 @@ scheme_searcher = APIRouter(prefix="/scheme_searcher", tags=["scheme_searcher"])
 
 
 @scheme_searcher.post(path="get_form")
-async def get_form(fields: dict[str, str], db: Annotated[AsyncIOMotorClient, Depends(get_schemes_db)]):
+async def get_form(
+    fields: dict[str, str], db: Annotated[AsyncIOMotorClient, Depends(get_schemes_db)]
+):
     repo = SchemeMongoRepo(client=db.schemes)
-    return await SchemesSearcher.search_fields(fields, repo)
+    schemes = SchemesSearcher(repo)
+    result = await schemes.search_fields(fields)
+    return result
