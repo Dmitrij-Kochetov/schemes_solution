@@ -3,6 +3,8 @@ services:
     image: mongo:latest
     ports:
     - "27017:27017"
+    networks:
+      - mongodb
     volumes:
     - db:/data/db
 
@@ -12,9 +14,15 @@ services:
       SETTINGS: deploy/schemes_solution
     ports:
     - "8000:8000"
+    networks:
+      - mongodb
     depends_on:
     - mongo
 
 volumes:
   db:
     driver: local
+
+networks:
+  mongodb:
+  

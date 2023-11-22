@@ -35,7 +35,6 @@ class Application:
             envvar_prefix="DYNACONF",
             settings_files=["settings.toml", ".secrets.toml"],
         )
-        print(config)
         logging.basicConfig(
             level=config.log.level,
             format=config.log.format,
