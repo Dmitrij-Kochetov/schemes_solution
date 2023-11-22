@@ -13,7 +13,7 @@ from src.infrastracture.mongo.repos.schemes_repo.schemes_repo import SchemeMongo
 scheme_searcher = APIRouter(prefix="/scheme_searcher", tags=["scheme_searcher"])
 
 
-@scheme_searcher.post(path="get_form")
+@scheme_searcher.post(path="/get_form")
 async def get_form(
     fields: dict[str, str], db: Annotated[AsyncIOMotorClient, Depends(get_schemes_db)]
 ):
